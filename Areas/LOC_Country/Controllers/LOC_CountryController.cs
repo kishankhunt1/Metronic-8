@@ -68,7 +68,8 @@ namespace Metronic_8.Areas.LOC_Country.Controllers
                     //if record insert
                     if (Convert.ToBoolean(dalLOC.PR_LOC_Country_Insert(modelLOC_Country)))
                     {
-                        TempData["Success"] = "Record Inserted successfully";
+                        TempData["success"] = "Record Inserted successfully";
+                        return RedirectToAction("Index");
                     }
                 }
                 else

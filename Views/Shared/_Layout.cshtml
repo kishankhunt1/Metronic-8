@@ -35,6 +35,11 @@
     <link href="~/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="~/dist/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
+
+	<!--begin:: Toastr js Notification-->
+	<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+	<!--end:: Toastr js Notification-->
+
 </head>
 <!--begin::Body-->
 <body data-kt-name="metronic" id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
@@ -5173,6 +5178,7 @@
 					<!--begin::Content wrapper-->
 					<div class="d-flex flex-column flex-column-fluid">
 						<main role="main" class="pb-3">
+						<partial name="_Notification" />
 							@RenderBody()
 						</main>
 					</div>
