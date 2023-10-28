@@ -22,16 +22,36 @@ namespace Metronic_8.Areas.SEC_User.Controllers
             return View();
         }
 
+		#region Function: Signup
+        public IActionResult Signup()
+        {
+            return View("Signup");
+        }
+        #endregion
+
+        #region Function: Signup Save
+        [HttpPost]
+        public IActionResult SignupPOST(SEC_UserModel modelSEC_User)
+        {
+            if (Convert.ToBoolean(dalSEC.PR_SEC_User_InsertUser(modelSEC_User)))
+            {
+                TempData["Success"] = "Signup successfully";
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Signup");
+        }
+        #endregion
+
         #region Function: Login
         [HttpPost]
-        public IActionResult Login(SEC_UserModel modelSEC_UserModel)
+        public IActionResult Login(SEC_UserModel modelSEC_User)
         {
             String error = null;
-            if (modelSEC_UserModel.UserName == null)
+            if (modelSEC_User.UserName == null)
             {
                 error += "User Name is required";
             }
-            if (modelSEC_UserModel.Password == null)
+            if (modelSEC_User.Password == null)
             {
                 error += "Password is required";
             }
@@ -43,7 +63,7 @@ namespace Metronic_8.Areas.SEC_User.Controllers
             }
             else
             {
-                DataTable dt=dalSEC.PR_SEC_User_SelectByUserNamePassword(modelSEC_UserModel.UserName, modelSEC_UserModel.Password);
+                DataTable dt=dalSEC.PR_SEC_User_SelectByUserNamePassword(modelSEC_User.UserName, modelSEC_User.Password);
                 if (dt.Rows.Count > 0)
                 {
                     foreach (DataRow dr in dt.Rows)
