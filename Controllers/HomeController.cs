@@ -1,10 +1,12 @@
-﻿using Metronic_8.Models;
+﻿using Metronic_8.BAL;
+using Metronic_8.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace Metronic_8.Controllers
 {
-    public class HomeController : Controller
+	[CheckAccess]
+	public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 

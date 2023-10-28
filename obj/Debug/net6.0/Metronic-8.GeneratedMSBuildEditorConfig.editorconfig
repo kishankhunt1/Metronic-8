@@ -5,68 +5,85 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Metronic_8
 build_property.RootNamespace = Metronic_8
-build_property.ProjectDir = F:\Metronic-8\
+build_property.ProjectDir = C:\Users\mayur\source\repos\Metronic-8\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = F:\Metronic-8
+build_property.MSBuildProjectDirectory = C:\Users\mayur\source\repos\Metronic-8
 build_property._RazorSourceGeneratorDebug = 
 
-[F:/Metronic-8/Areas/LOC_City/Views/LOC_City/CityList.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_City/Views/LOC_City/CityList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NpdHlcVmlld3NcTE9DX0NpdHlcQ2l0eUxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Areas/LOC_City/Views/_ViewImports.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_City/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NpdHlcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Areas/LOC_Country/Views/LOC_Country/CountryAddEdit.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_Country/Views/LOC_Country/CountryAddEdit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcTE9DX0NvdW50cnlcQ291bnRyeUFkZEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Areas/LOC_Country/Views/LOC_Country/CountryList.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_Country/Views/LOC_Country/CountryList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcTE9DX0NvdW50cnlcQ291bnRyeUxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Areas/LOC_Country/Views/_ViewImports.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_Country/Views/Shared/_filterCountry.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcU2hhcmVkXF9maWx0ZXJDb3VudHJ5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_Country/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Areas/LOC_State/Views/LOC_State/StateList.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_State/Views/LOC_State/StateList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX1N0YXRlXFZpZXdzXExPQ19TdGF0ZVxTdGF0ZUxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Areas/LOC_State/Views/_ViewImports.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_State/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX1N0YXRlXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Views/Home/Index.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Areas/SEC_User/Views/SEC_User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU0VDX1VzZXJcVmlld3NcU0VDX1VzZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/Metronic-8/Areas/SEC_User/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU0VDX1VzZXJcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/Metronic-8/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Views/Home/Privacy.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Views/Shared/Error.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Views/Shared/_Layout_Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/Metronic-8/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Views/_ViewImports.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Views/_ViewStart.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Metronic-8/Views/Shared/_Layout.cshtml]
+[C:/Users/mayur/source/repos/Metronic-8/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-08vdlod5bv
