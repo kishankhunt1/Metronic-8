@@ -1,0 +1,39 @@
+﻿@model Metronic_8.Areas.LOC_State.Models.LOC_StateModel;
+
+<form method="post">
+	<div class="d-flex row">
+
+		<!--begin::Input group-->
+		<div class="row  mb-8">
+			<!--begin::Col-->
+			<div class="col-md-4 fv-row">
+				<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Country" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.List,"CountryID","CountryName"))">
+					<option value="">Select Country</option>
+				</select>
+			</div>
+			<!--end::Col-->
+			<!--begin::Col-->
+			<div class="col-md-4 fv-row">
+				<!--begin::Input-->
+				<input type="search" class="form-control form-control-solid"
+					   name="StateName"
+					   asp-for="StateName" placeholder="Enter State Name"
+					   autocomplete="off" />
+				<!--end::Input-->
+			</div>
+			<!--end::Col-->
+		</div>
+		<!--end::Input group-->
+
+		<div class="col-lg-4">
+			<button type="submit" class="btn btn-primary"
+					style="margin-right:15px;" asp-area="LOC_State" asp-controller="LOC_State" asp-action="Index">
+				<span class="indicator-label">Search</span>
+			</button>
+			<a type="submit" class="btn btn-light me-3"
+			   asp-area="LOC_State" asp-controller="LOC_State" asp-action="Clear">
+				Clear
+			</a>
+		</div>
+	</div>
+</form>

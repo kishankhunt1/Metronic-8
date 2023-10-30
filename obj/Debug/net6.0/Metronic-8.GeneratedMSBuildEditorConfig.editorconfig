@@ -40,8 +40,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_State/Views/LOC_State/StateAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX1N0YXRlXFZpZXdzXExPQ19TdGF0ZVxTdGF0ZUFkZEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_State/Views/LOC_State/StateList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX1N0YXRlXFZpZXdzXExPQ19TdGF0ZVxTdGF0ZUxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_State/Views/Shared/_filterState.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX1N0YXRlXFZpZXdzXFNoYXJlZFxfZmlsdGVyU3RhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_State/Views/_ViewImports.cshtml]

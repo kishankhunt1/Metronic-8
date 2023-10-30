@@ -1,6 +1,7 @@
 ﻿using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data.Common;
 using System.Data;
+using Metronic_8.BAL;
 
 namespace Metronic_8.DAL
 {
@@ -13,6 +14,8 @@ namespace Metronic_8.DAL
             {
                 SqlDatabase sqlDB = new SqlDatabase(ConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_LOC_Country_CountryDropDown");
+                //sqlDB.AddInParameter(dbCMD, "@UserID", SqlDbType.Int, CV.UserID());
+
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
                 {
@@ -70,6 +73,9 @@ namespace Metronic_8.DAL
         }
         #endregion
 
+
+
+
         #region Method: PR_LOC_Country_SearchForCountryName
 
         public DataTable PR_LOC_Country_SearchForCountryName(string CountryName)
@@ -77,6 +83,7 @@ namespace Metronic_8.DAL
             SqlDatabase sqlDB = new SqlDatabase(ConnectionString);
             DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_LOC_Country_SearchForCountryName");
             sqlDB.AddInParameter(dbCMD, "@CountryName", SqlDbType.NVarChar, CountryName);
+            sqlDB.AddInParameter(dbCMD, "@UserID", SqlDbType.Int, CV.UserID());
             DataTable dt = new DataTable();
             using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
             {

@@ -27,6 +27,7 @@ namespace Metronic_8.Areas.LOC_Country.Controllers
                 CountryModel.CityCount = Convert.ToInt32(dr["CityCount"]);
                 CountryModel.Created = Convert.ToDateTime(dr["Created"]);
                 CountryModel.Modified = Convert.ToDateTime(dr["Modified"]);
+
                 Country.Add(CountryModel);
             }
             ViewBag.Country = Country;
@@ -97,6 +98,24 @@ namespace Metronic_8.Areas.LOC_Country.Controllers
         }
         #endregion
 
+        #region Function: Delete Multiple
+        [HttpPost]
+        public IActionResult DeleteMultiple(int[] Ids)
+        {
+            string result = string.Empty;
+            if (Ids.Count() > 0)
+            {
+                foreach (int id in Ids)
+                {
+                    dalLOC.PR_LOC_Country_DeleteByPk(id);
+                }
+                TempData["success"] = "Records deleted successfully.";
+                result = "success";
+            }
+            return new JsonResult(result);
+        }
+        #endregion
+
         #region Function: Search Record
         public IActionResult Search(string CountryName)
         {
@@ -111,6 +130,7 @@ namespace Metronic_8.Areas.LOC_Country.Controllers
                 CountryModel.CityCount = Convert.ToInt32(dr["CityCount"]);
                 CountryModel.Created = Convert.ToDateTime(dr["Created"]);
                 CountryModel.Modified = Convert.ToDateTime(dr["Modified"]);
+                //CountryModel.UserID = Convert.ToInt32(dr["UserID"]);
                 Country.Add(CountryModel);
             }
             ViewBag.Country = Country;

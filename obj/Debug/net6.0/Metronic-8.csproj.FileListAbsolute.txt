@@ -481,3 +481,4 @@ F:\Metronic-8\obj\Debug\net6.0\refint\Metronic-8.dll
 F:\Metronic-8\obj\Debug\net6.0\Metronic-8.pdb
 F:\Metronic-8\obj\Debug\net6.0\Metronic-8.genruntimeconfig.cache
 F:\Metronic-8\obj\Debug\net6.0\ref\Metronic-8.dll
+C:\Users\mayur\source\repos\Metronic-8\bin\Debug\net6.0\BCrypt.Net-Next.dll

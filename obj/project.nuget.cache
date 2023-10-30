@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "6gP9c4uxiL1wZlFSlpiTPfNlQOFIY4z7BKGLPHPmJ3+ltaOt8Jvro2ncnbiC/92NaqqddoCupArVdbSvUHIwbw==",
+  "dgSpecHash": "eqCNv5+piBDOXahHROL9QIR74FeS026jkqeTTtHjjQ09vS+vdy0C0+NC/ltsCN6vAqo8dz8IEgqnkEwTcGCREw==",
   "success": true,
   "projectFilePath": "C:\\Users\\mayur\\source\\repos\\Metronic-8\\Metronic-8.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\mayur\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\mayur\\.nuget\\packages\\enterpriselibrary.common.netcore\\6.3.0\\enterpriselibrary.common.netcore.6.3.0.nupkg.sha512",
     "C:\\Users\\mayur\\.nuget\\packages\\enterpriselibrary.data.netcore\\6.3.2\\enterpriselibrary.data.netcore.6.3.2.nupkg.sha512",
     "C:\\Users\\mayur\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

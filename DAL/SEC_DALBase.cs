@@ -32,7 +32,6 @@ namespace Metronic_8.DAL
         }
 		#endregion
 
-
 		#region Function: PR_SEC_User_InsertUser
 		public bool? PR_SEC_User_InsertUser(SEC_UserModel modelSEC_User)
 		{
@@ -41,8 +40,8 @@ namespace Metronic_8.DAL
 				SqlDatabase sqlDB = new SqlDatabase(ConnectionString);
 				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_SEC_User_InsertUser");
 				sqlDB.AddInParameter(dbCMD, "@UserName", SqlDbType.NVarChar, modelSEC_User.UserName);
-				sqlDB.AddInParameter(dbCMD, "@Password", SqlDbType.NVarChar, modelSEC_User.Password);
-				sqlDB.AddInParameter(dbCMD, "@FirstName", SqlDbType.NVarChar, modelSEC_User.FirstName);
+                sqlDB.AddInParameter(dbCMD, "@Password", SqlDbType.NVarChar, modelSEC_User.Password); // This should be the hashed password
+                sqlDB.AddInParameter(dbCMD, "@FirstName", SqlDbType.NVarChar, modelSEC_User.FirstName);
 				sqlDB.AddInParameter(dbCMD, "@LastName", SqlDbType.NVarChar, modelSEC_User.LastName);
 				sqlDB.AddInParameter(dbCMD, "@UserEmail", SqlDbType.NVarChar, modelSEC_User.UserEmail);
 
@@ -55,5 +54,7 @@ namespace Metronic_8.DAL
 			}
 		}
 		#endregion
+
+		
 	}
 }

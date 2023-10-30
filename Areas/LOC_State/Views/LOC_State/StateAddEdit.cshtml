@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "StateAddEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Metronic_8.Areas.LOC_State.Models.LOC_StateModel;
+<!--begin::Toolbar-->
+<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+    <!--begin::Toolbar container-->
+    <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+        <!--begin::Page title-->
+        <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+            <!--begin::Title-->
+            <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">State</h1>
+            <!--end::Title-->
+            <!--begin::Breadcrumb-->
+            <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                <!--begin::Item-->
+                <li class="breadcrumb-item text-muted">
+                    <a asp-controller="Home" asp-action="Index" class="text-muted text-hover-primary">Home</a>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item">
+                    <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item text-muted">
+                    <a asp-area="LOC_State" asp-controller="LOC_State" asp-action="Index" class="text-muted text-hover-primary">States</a>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item">
+                    <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                </li>
+                <!--end::Item-->
+                <!--begin::Item-->
+                <li class="breadcrumb-item text-muted">Add State</li>
+                <!--end::Item-->
+            </ul>
+            <!--end::Breadcrumb-->
+        </div>
+        <!--end::Page title-->
+    </div>
+    <!--end::Toolbar container-->
+</div>
+<!--end::Toolbar-->
+<!--begin::Content-->
+<div id="kt_app_content" class="app-content flex-column-fluid">
+    <!--begin::Content container-->
+    <div id="kt_app_content_container" class="app-container container-fluid">
+        <div class="m-5">
+
+            <form method="post" asp-area="LOC_State" asp-controller="LOC_State" asp-action="Save">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <input type="hidden" asp-for="StateID" autocomplete="off" />
+                <div class="row">
+                    <!--begin::Input group-->
+                    <div class="d-flex flex-column mb-8 fv-row col-lg-6">
+                        <!--begin::Label-->
+                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="StateName">
+                            <span>Country Name </span> <span class="text-danger">*</span>
+                        </label>
+                        <!--end::Label-->
+                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Country" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.List,"CountryID","CountryName"))">
+                            <option value="">Select Country</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="StateName"></span>
+                    </div>
+                    <!--end::Input group-->
+                    <!--begin::Input group-->
+                    <div class="d-flex flex-column mb-8 fv-row col-lg-6 ">
+                        <!--begin::Label-->
+                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="StateName">
+                            <span>State Name </span> <span class="text-danger">*</span>
+                        </label>
+                        <!--end::Label-->
+                        <input type="text" class="form-control form-control-solid" asp-for="StateName" placeholder="Enter State Name" autocomplete="off" />
+                        <span class="text-danger" asp-validation-for="StateName"></span>
+                    </div>
+                    <!--end::Input group-->
+                </div>
+                <!--begin::Actions-->
+                <div>
+                    <button type="submit" class="btn btn-primary" style="margin-right:5px;">
+                        <span class="indicator-label">Submit</span>
+                    </button>
+                    <a type="submit" class="btn btn-light me-3" asp-area="LOC_State" asp-controller="LOC_State" asp-action="Index">
+                        Back to List
+                    </a>
+                </div>
+                <!--end::Actions-->
+            </form>
+        </div>
+    </div>
+    <!--end::Content container-->
+</div>
+<!--end::Content-->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

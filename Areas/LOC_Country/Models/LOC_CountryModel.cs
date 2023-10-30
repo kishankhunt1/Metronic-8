@@ -15,7 +15,8 @@ namespace Metronic_8.Areas.LOC_Country.Models
 		public DateTime Modified { get; set; }
 		public int StateCount { get; set; }
 		public int CityCount { get; set; }
-	}
+        public int UserID { get; set; }
+    }
 
 	public class CountryDropDown
 	{

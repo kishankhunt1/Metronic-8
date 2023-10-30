@@ -3,14 +3,12 @@
 <form method="post" asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Search">
     <div class="d-flex row">
         <!--begin::Input group-->
-
         <div class="d-flex flex-column fv-row col-lg-4">
             <input type="search" class="form-control form-control-solid"
                    name="CountryName"
                    asp-for="CountryName" placeholder="Enter Country Name"
                    autocomplete="off" />
         </div>
-
         <!--end::Input group-->
         <div class="col-lg-4">
             <button type="submit" class="btn btn-primary"

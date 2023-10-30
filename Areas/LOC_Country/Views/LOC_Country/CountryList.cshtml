@@ -1,13 +1,15 @@
-﻿@using Metronic_8.Areas.LOC_Country.Models;
+﻿
+@using Metronic_8.Areas.LOC_Country.Models;
 @{
     ViewData["Title"] = "CountryList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <!--begin::Toolbar-->
 <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
     <!--begin::Toolbar container-->
     <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
-        
+
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
             <!--begin::Title-->
@@ -98,6 +100,8 @@
                 <!--begin::Card title-->
                 <!--begin::Card toolbar-->
                 <div class="card-toolbar">
+
+
                     <!--begin::Toolbar-->
                     <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
                         <!--begin::Add customer-->
@@ -109,6 +113,8 @@
                         <!--end::Add customer-->
                     </div>
                     <!--end::Toolbar-->
+
+
                     <!--begin::Group actions-->
                     <div class="d-flex justify-content-end align-items-center d-none"
                          data-kt-customer-table-toolbar="selected">
@@ -117,12 +123,14 @@
                                   data-kt-customer-table-select="selected_count"></span>Selected
                         </div>
                         <button type="button" class="btn btn-danger"
-                                data-kt-customer-table-select="delete_selected">
+                                data-kt-customer-table-select="delete_selected" id="btnDelete">
                             Delete
                             Selected
                         </button>
                     </div>
                     <!--end::Group actions-->
+
+
                 </div>
                 <!--end::Card toolbar-->
             </div>
@@ -130,18 +138,18 @@
             <!--begin::Card body-->
             <div class="card-body pt-4">
                 <!--begin::Table-->
-                <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
+                <table class="table align-middle table-row-dashed fs-6 gy-5 datatable" id="kt_customers_table">
                     <!--begin::Table head-->
                     <thead class="bg-light">
                         <!--begin::Table row-->
                         <tr class=" fw-bold fs-7 text-uppercase">
                             <th class="w-10px pe-2">
                                 <div class="form-check form-check-sm form-check-custom form-check-solid me-3 px-2">
-                                    <input class="form-check-input" type="checkbox" data-kt-check="true" style="background-color:black;"
-                                           data-kt-check-target="#kt_customers_table .form-check-input"
-                                           value="1" />
+                                    <input class="form-check-input" type="checkbox" style="background-color:black;"
+                                           id="SelectAll"  />
                                 </div>
                             </th>
+                         
                             <th class="min-w-125px text-center">Country Name</th>
                             <th class="min-w-125px text-center">State Count</th>
                             <th class="min-w-125px text-center">City Count</th>
@@ -160,7 +168,7 @@
 
                                 <td>
                                     <div class="form-check form-check-sm form-check-custom form-check-solid px-2">
-                                        <input class="form-check-input" type="checkbox" value="1" style="background-color:black;" />
+                                        <input class="form-check-input" type="checkbox" id="SelectOne" name="SelectOne" value="@dr.CountryID" style="background-color:black;" />
                                     </div>
                                 </td>
 
@@ -223,3 +231,73 @@
     <!--end::Content container-->
 </div>
 <!--end::Content-->
+@section scripts{
+
+
+    <!--begin::Javascript-->
+    <script>var hostUrl = "assets/";</script>
+    <!--begin::Global Javascript Bundle(used by all pages)-->
+    <script src="~/dist/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="~/dist/assets/js/scripts.bundle.js"></script>
+    <!--end::Global Javascript Bundle-->
+    <!--begin::Vendors Javascript(used by this page)-->
+    <script src="~/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Vendors Javascript-->
+    <!--begin::Custom Javascript(used by this page)-->
+    <script src="~/dist/assets/js/custom/apps/ecommerce/customers/listing/listing.js"></script>
+    <script src="~/dist/assets/js/custom/apps/ecommerce/customers/listing/add.js"></script>
+    <script src="~/dist/assets/js/custom/apps/ecommerce/customers/listing/export.js"></script>
+    <script src="~/dist/assets/js/widgets.bundle.js"></script>
+    <script src="~/dist/assets/js/custom/widgets.js"></script>
+    <script src="~/dist/assets/js/custom/apps/chat/chat.js"></script>
+    <script src="~/dist/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+    <script src="~/dist/assets/js/custom/utilities/modals/create-app.js"></script>
+    <script src="~/dist/assets/js/custom/utilities/modals/users-search.js"></script>
+    <!--end::Custom Javascript-->
+    <!--end::Javascript-->
+    @*<---------- select all check box script start ---------->*@
+    <script>
+        $('#SelectAll').on('click', function () {
+            let checkboxes = document.getElementsByTagName('input');
+            let val = null;
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].type === 'checkbox') {
+                    if (val == null) {
+                        val = checkboxes[i].checked;
+                    }
+                    else {
+                        checkboxes[i].checked = val;
+                    }
+                }
+            }
+        });
+    </script>
+    @*<---------- select all check box script end ---------->*@
+
+    @*<---------- tack selected checkbox values script starts ---------->*@
+    <script>
+        $('#btnDelete').on('click', function () {
+            debugger;
+            let val = [];
+            console.log(val);
+            $("input[name='SelectOne']:checked").each(function () {
+                val.push($(this).val());
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: '/LOC_Country/DeleteMultiple',
+                data: { 'Ids': val },
+                success: function (response) {
+                    if (response == 'success') {
+                        location.reload();
+                    }
+                },
+                error: function () {
+
+                }
+            })
+        });
+    </script>
+    @*<---------- tack selected checkbox values script end ---------->*@
+}
