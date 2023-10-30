@@ -16,8 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\mayur\source\repos\Metronic-8
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_City/Views/LOC_City/CityAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NpdHlcVmlld3NcTE9DX0NpdHlcQ2l0eUFkZEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_City/Views/LOC_City/CityList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NpdHlcVmlld3NcTE9DX0NpdHlcQ2l0eUxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_City/Views/Shared/_filterCity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NpdHlcVmlld3NcU2hhcmVkXF9maWx0ZXJDaXR5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_City/Views/_ViewImports.cshtml]

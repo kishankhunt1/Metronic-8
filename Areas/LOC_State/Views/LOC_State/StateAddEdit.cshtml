@@ -59,14 +59,14 @@
                     <!--begin::Input group-->
                     <div class="d-flex flex-column mb-8 fv-row col-lg-6">
                         <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="StateName">
+                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="CountryID">
                             <span>Country Name </span> <span class="text-danger">*</span>
                         </label>
                         <!--end::Label-->
                         <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Country" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.List,"CountryID","CountryName"))">
                             <option value="">Select Country</option>
                         </select>
-                        <span class="text-danger" asp-validation-for="StateName"></span>
+                        <span class="text-danger" asp-validation-for="CountryID"></span>
                     </div>
                     <!--end::Input group-->
                     <!--begin::Input group-->

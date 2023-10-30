@@ -4,6 +4,7 @@ using System.Data.Common;
 using System.Data;
 using Metronic_8.BAL;
 using Metronic_8.Areas.LOC_State.Models;
+using Metronic_8.Areas.LOC_City.Models;
 
 namespace Metronic_8.DAL
 {
@@ -257,6 +258,137 @@ namespace Metronic_8.DAL
                 SqlDatabase sqlDB = new SqlDatabase(ConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_LOC_State_DeleteByPk");
                 sqlDB.AddInParameter(dbCMD, "@StateID", SqlDbType.Int, StateID);
+
+                int result = sqlDB.ExecuteNonQuery(dbCMD);
+                return (result == -1 ? false : true);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+        #endregion
+
+        #endregion
+
+        #region City Procedures
+
+        #region Method: PR_LOC_City_SelectAll
+        public DataTable PR_LOC_City_SelectAll(LOC_CityModel modelLOC_City)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(ConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_LOC_City_SelectAll");
+                DataTable dt = new DataTable();
+
+                if (modelLOC_City.CountryID != null || modelLOC_City.StateID != null || modelLOC_City.CityName != null)
+                {
+                    dbCMD = sqlDB.GetStoredProcCommand("PR_LOC_City_SelectByCountryNameStateNameCityName");
+
+                    if (modelLOC_City.CountryID != null)
+                        sqlDB.AddInParameter(dbCMD, "CountryID", SqlDbType.Int, modelLOC_City.CountryID);
+                    else
+                        sqlDB.AddInParameter(dbCMD, "CountryID", SqlDbType.Int, "");
+
+                    if (modelLOC_City.StateID != null)
+                        sqlDB.AddInParameter(dbCMD, "StateID", SqlDbType.Int, modelLOC_City.StateID);
+                    else
+                        sqlDB.AddInParameter(dbCMD, "StateID", SqlDbType.Int, "");
+
+                    if (modelLOC_City.CityName != null)
+                        sqlDB.AddInParameter(dbCMD, "CityName", SqlDbType.NVarChar, modelLOC_City.CityName);
+                    else
+                        sqlDB.AddInParameter(dbCMD, "CityName", SqlDbType.NVarChar, "");
+
+                }
+                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region Method: PR_LOC_City_SelectByPk
+        public DataTable PR_LOC_City_SelectByPk(int? CityID)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(ConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_LOC_City_SelectByPk");
+                sqlDB.AddInParameter(dbCMD, "@CityID", SqlDbType.Int, CityID);
+                DataTable dt = new DataTable();
+                using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
+                {
+                    dt.Load(dr);
+                }
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region Method: PR_LOC_City_Insert
+        public bool? PR_LOC_City_Insert(LOC_CityModel modelLOC_City)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(ConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_LOC_City_Insert");
+                sqlDB.AddInParameter(dbCMD, "@CountryID", SqlDbType.NVarChar, modelLOC_City.CountryID);
+                sqlDB.AddInParameter(dbCMD, "@StateID", SqlDbType.NVarChar, modelLOC_City.StateID);
+                sqlDB.AddInParameter(dbCMD, "@Cityname", SqlDbType.NVarChar, modelLOC_City.CityName);
+
+                int result = sqlDB.ExecuteNonQuery(dbCMD);
+                return (result == -1 ? false : true);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region Method: PR_LOC_City_UpdateByPk
+        public bool? PR_LOC_City_UpdateByPk(LOC_CityModel modelLOC_City)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(ConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_LOC_City_UpdateByPk");
+                sqlDB.AddInParameter(dbCMD, "@CityID", SqlDbType.Int, modelLOC_City.CityID);
+                sqlDB.AddInParameter(dbCMD, "@CountryID", SqlDbType.Int, modelLOC_City.CountryID);
+                sqlDB.AddInParameter(dbCMD, "@StateID", SqlDbType.Int, modelLOC_City.StateID);
+                sqlDB.AddInParameter(dbCMD, "@CityName", SqlDbType.NVarChar, modelLOC_City.CityName);
+
+                int result = sqlDB.ExecuteNonQuery(dbCMD);
+                return (result == -1 ? false : true);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region Method: PR_LOC_City_DeleteByPk
+        public bool? PR_LOC_City_DeleteByPk(int CityID)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(ConnectionString);
+                DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_LOC_City_DeleteByPk");
+                sqlDB.AddInParameter(dbCMD, "@CityID", SqlDbType.Int, CityID);
 
                 int result = sqlDB.ExecuteNonQuery(dbCMD);
                 return (result == -1 ? false : true);
