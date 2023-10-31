@@ -107,7 +107,7 @@ namespace Metronic_8.Areas.SEC_User.Controllers
 
 				if (HttpContext.Session.GetString("UserName") != null && HttpContext.Session.GetString("Password") != null)
 				{
-                    TempData["Success"] = "Signin successfully";
+                    TempData["Success"] = "Signin Successfully !";
                     return RedirectToAction("Index", "Home");
 				}
 			}

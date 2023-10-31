@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eelzFIdC+TJPehqsr4I03hOdEpqeay+3cKZzcE4ncLc=",
+  "Hash": "WjepgkRv+5PMkJ37JWN2yCSp2fxgKP/B5+mT91OO6eM=",
   "Source": "Metronic-8",
   "BasePath": "_content/Metronic-8",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\mayur\\source\\repos\\Metronic-8\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Metronic-8.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\mayur\\source\\repos\\Metronic-8\\wwwroot\\css\\StyleSheet.css",
+      "SourceId": "Metronic-8",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mayur\\source\\repos\\Metronic-8\\wwwroot\\",
+      "BasePath": "_content/Metronic-8",
+      "RelativePath": "css/StyleSheet.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\StyleSheet.css"
     },
     {
       "Identity": "C:\\Users\\mayur\\source\\repos\\Metronic-8\\wwwroot\\dist\\assets\\css\\style.bundle.css",

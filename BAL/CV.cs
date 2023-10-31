@@ -20,7 +20,18 @@
 			return UserName;
 		}
 
-		public static int? UserID()
+        public static string? UserEmail()
+        {
+            string? UserEmail = null;
+
+            if (_httpContextAccessor.HttpContext.Session.GetString("UserEmail") != null)
+            {
+                UserEmail = _httpContextAccessor.HttpContext.Session.GetString("UserEmail").ToString();
+            }
+            return UserEmail;
+        }
+
+        public static int? UserID()
 		{
 			int? UserID = null;
 

@@ -69,7 +69,7 @@ namespace Metronic_8.Areas.LOC_Country.Controllers
                     //if record insert
                     if (Convert.ToBoolean(dalLOC.PR_LOC_Country_Insert(modelLOC_Country)))
                     {
-                        TempData["success"] = "Record Inserted successfully";
+                        TempData["success"] = "Record Inserted Successfully !";
                         return RedirectToAction("Index");
                     }
                 }
@@ -78,7 +78,7 @@ namespace Metronic_8.Areas.LOC_Country.Controllers
                     //if record update
                     if (Convert.ToBoolean(dalLOC.PR_LOC_Country_UpdateByPk(modelLOC_Country)))
                     {
-                        TempData["success"] = "Record Updated successfully.";
+                        TempData["success"] = "Record Updated Successfully !";
                         return RedirectToAction("Index");
                     }
                 }
@@ -92,7 +92,7 @@ namespace Metronic_8.Areas.LOC_Country.Controllers
         {
             if (Convert.ToBoolean(dalLOC.PR_LOC_Country_DeleteByPk(CountryID)))
             {
-                TempData["success"] = "Record deleted successfully.";
+                TempData["success"] = "Record deleted Successfully !";
             }
             return RedirectToAction("Index");
         }
@@ -109,7 +109,7 @@ namespace Metronic_8.Areas.LOC_Country.Controllers
                 {
                     dalLOC.PR_LOC_Country_DeleteByPk(id);
                 }
-                TempData["success"] = "Records deleted successfully.";
+                TempData["success"] = "Records deleted Successfully !";
                 result = "success";
             }
             return new JsonResult(result);

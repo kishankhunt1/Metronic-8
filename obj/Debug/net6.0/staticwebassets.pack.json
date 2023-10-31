@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Metronic-8.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\mayur\\source\\repos\\Metronic-8\\wwwroot\\css\\StyleSheet.css",
+      "PackagePath": "staticwebassets\\css\\StyleSheet.css"
+    },
+    {
       "Id": "C:\\Users\\mayur\\source\\repos\\Metronic-8\\wwwroot\\dist\\assets\\css\\style.bundle.css",
       "PackagePath": "staticwebassets\\dist\\assets\\css\\style.bundle.css"
     },
