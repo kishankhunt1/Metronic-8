@@ -7,7 +7,7 @@
 		<div class="row  mb-8">
 			<!--begin::Col-->
 			<div class="col-md-4 fv-row">
-				<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Country" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.List,"CountryID","CountryName"))">
+				<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Country" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList,"CountryID","CountryName"))">
 					<option value="">Select Country</option>
 				</select>
 			</div>

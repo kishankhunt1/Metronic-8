@@ -40,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcTE9DX0NvdW50cnlcQ291bnRyeUxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_Country/Views/Shared/_CountryAddEditModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcU2hhcmVkXF9Db3VudHJ5QWRkRWRpdE1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mayur/source/repos/Metronic-8/Areas/LOC_Country/Views/Shared/_filterCountry.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcU2hhcmVkXF9maWx0ZXJDb3VudHJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

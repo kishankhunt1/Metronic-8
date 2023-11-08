@@ -3,6 +3,7 @@ using Metronic_8.DAL;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Scripting;
 using System.Data;
+using System.Text;
 
 namespace Metronic_8.Areas.SEC_User.Controllers
 {
@@ -18,12 +19,36 @@ namespace Metronic_8.Areas.SEC_User.Controllers
 			this.configuration = configuration;
 		}
 
-        #region Function: Convert Password into PasswordHash
-        private string HashPassword(string password)
-        {
-            // Hash the password using a suitable hashing library (e.g., BCrypt)
-            return BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt(12));
-        }
+		#region Funtion: Convert String Password into Encrypted Password
+		public static string EncryptPassword(string Password)
+		{
+			if (string.IsNullOrEmpty(Password))
+			{
+				return null;
+			}
+			else
+			{
+				byte[] storePassword = ASCIIEncoding.ASCII.GetBytes(Password);
+				string encryptedPassword = Convert.ToBase64String(storePassword);
+				return encryptedPassword;
+			}
+		}
+		#endregion
+
+		#region Funtion: Convert Encrypted Password into Decrypted Password
+		public static string DecryptPassword(string Password)
+		{
+			if (string.IsNullOrEmpty(Password))
+			{
+				return null;
+			}
+			else
+			{
+				byte[] encryptedPassword = Convert.FromBase64String(Password);
+				string decryptedPassword = ASCIIEncoding.ASCII.GetString(encryptedPassword);
+				return decryptedPassword;
+			}
+		}
 		#endregion
 
 		#region Function: Index
@@ -31,10 +56,10 @@ namespace Metronic_8.Areas.SEC_User.Controllers
 		{
 			return View();
 		}
-        #endregion
+		#endregion
 
-        #region Function: Signup
-        public IActionResult Signup()
+		#region Function: Signup
+		public IActionResult Signup()
 		{
 			return View("Signup");
 		}
@@ -44,10 +69,10 @@ namespace Metronic_8.Areas.SEC_User.Controllers
 		[HttpPost]
 		public IActionResult SignupPOST(SEC_UserModel modelSEC_User)
 		{
-            //string hashedPassword = HashPassword(modelSEC_User.Password); // Hash the password
-            //modelSEC_User.Password = hashedPassword; // Update the model with the hashed password
+			//string encryptPassword = EncryptPassword(modelSEC_User.Password);
+			//modelSEC_User.Password = encryptPassword;
 
-            if (Convert.ToBoolean(dalSEC.PR_SEC_User_InsertUser(modelSEC_User)))
+			if (Convert.ToBoolean(dalSEC.PR_SEC_User_InsertUser(modelSEC_User)))
 			{
 				TempData["SignUpSuccess"] = "Signup successfully";
 				return RedirectToAction("Index");
@@ -82,10 +107,10 @@ namespace Metronic_8.Areas.SEC_User.Controllers
 			}
 			else
 			{
-                //// Hash the provided password
-                //string hashedPassword = HashPassword(modelSEC_User.Password);
+				//string encryptPassword = EncryptPassword(modelSEC_User.Password);
+				//modelSEC_User.Password = encryptPassword;
 
-                DataTable dt = dalSEC.PR_SEC_User_SelectByUserNamePassword(modelSEC_User.UserName, modelSEC_User.Password);
+				DataTable dt = dalSEC.PR_SEC_User_SelectByUserNamePassword(modelSEC_User.UserName, modelSEC_User.Password);
 				if (dt.Rows.Count > 0)
 				{
 					foreach (DataRow dr in dt.Rows)
@@ -107,8 +132,8 @@ namespace Metronic_8.Areas.SEC_User.Controllers
 
 				if (HttpContext.Session.GetString("UserName") != null && HttpContext.Session.GetString("Password") != null)
 				{
-                    TempData["Success"] = "Signin Successfully !";
-                    return RedirectToAction("Index", "Home");
+					TempData["Success"] = "Signin Successfully !";
+					return RedirectToAction("Index", "Home");
 				}
 			}
 			return RedirectToAction("Index");

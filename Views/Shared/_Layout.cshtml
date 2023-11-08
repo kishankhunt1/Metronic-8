@@ -29,7 +29,6 @@
     <link href="~/dist/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Vendor Stylesheets-->
 
-	<link href="~/dist/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
 	
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href="~/dist/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
@@ -44,6 +43,8 @@
 	<!--begin:: Toastr js Notification-->
 	<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 	<!--end:: Toastr js Notification-->
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+k6S7D4V3eBb5l5rC4YqFO5LZ" crossorigin="anonymous">
 
 </head>
 <!--begin::Body-->
@@ -2712,7 +2713,7 @@
 											</span>
 											<!--end::Svg Icon-->
 										</span>
-										<span class="menu-title">Dashboards</span>
+										<a class="menu-title" asp-controller="Home" asp-action="Index">Dashboards</a>
 									</span>
 									<!--end:Menu link-->
 								</div>
@@ -7522,10 +7523,10 @@
 	<!--begin::Global Javascript Bundle(used by all pages)-->
 	<script src="~/dist/assets/plugins/global/plugins.bundle.js"></script>
 	<script src="~/dist/assets/js/scripts.bundle.js"></script>
+	<script src="~/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Vendors Javascript(used by this page)-->
-	<script src="~/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
-	<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+	<script src="https://cdn.amcharts.com/lib/5/index.js"></script>															
 	<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
 	<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
 	<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
@@ -7536,7 +7537,7 @@
 	<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
 	<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
 	<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
-	<script src="~/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+	
 	<!--end::Vendors Javascript-->
 	<!--begin::Custom Javascript(used by this page)-->
 	<script src="~/dist/assets/js/widgets.bundle.js"></script>
@@ -7549,7 +7550,8 @@
 	<!--end::Custom Javascript-->
 	<!--end::Javascript-->
 
-
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+I6G5F4f/P6HRuJ3L/5L6RS9Z42x4V2L5cF5Cz5Bz3dkf5ra" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+k6S7D4V3eBb5l5rC4YqFO5LZ" crossorigin="anonymous"></script>
 
 	@await RenderSectionAsync("Scripts", required: false)
 

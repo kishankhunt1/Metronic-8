@@ -1,6 +1,6 @@
 ﻿@model Metronic_8.Areas.LOC_Country.Models.LOC_CountryModel;
 
-<form method="post" asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Search">
+<form method="post">
     <div class="d-flex row">
         <!--begin::Input group-->
         <div class="d-flex flex-column fv-row col-lg-4">
@@ -11,7 +11,7 @@
         </div>
         <!--end::Input group-->
         <div class="col-lg-4">
-            <button type="submit" class="btn btn-primary"
+            <button type="submit" class="btn btn-primary" asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Index"
                     style="margin-right:15px;">
                 <span class="indicator-label">Search</span>
             </button>

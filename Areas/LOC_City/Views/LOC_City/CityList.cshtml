@@ -3,7 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 @using Metronic_8.Areas.LOC_City.Models;
 <!--begin::Toolbar-->
 <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
@@ -144,7 +143,7 @@
                     <!--end::Table head-->
                     <!--begin::Table body-->
                     <tbody class="fw-semibold text-gray-600">
-                        @foreach (LOC_CityModel dr in ViewBag.City)
+                        @foreach (LOC_CityModel dr in ViewBag.CityModel)
                         {
                             <tr>
 
@@ -223,11 +222,11 @@
     <!--begin::Javascript-->
     <script>var hostUrl = "assets/";</script>
     <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="~/dist/assets/plugins/global/plugins.bundle.js"></script>
-    <script src="~/dist/assets/js/scripts.bundle.js"></script>
+   @*  <script src="~/dist/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="~/dist/assets/js/scripts.bundle.js"></script> *@
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used by this page)-->
-    <script src="~/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    @* <script src="~/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script> *@
     <!--end::Vendors Javascript-->
     <!--begin::Custom Javascript(used by this page)-->
     <script src="~/dist/assets/js/custom/apps/ecommerce/customers/listing/listing.js"></script>

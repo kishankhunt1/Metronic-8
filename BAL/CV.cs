@@ -3,8 +3,9 @@
 	public static class CV
 	{
 		private static IHttpContextAccessor _httpContextAccessor;
+        public static Boolean IsURLEncryption = true;
 
-		static CV()
+        static CV()
 		{
 			_httpContextAccessor = new HttpContextAccessor();
 		}

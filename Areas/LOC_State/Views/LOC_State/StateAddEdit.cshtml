@@ -36,7 +36,7 @@
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Add State</li>
+                <li class="breadcrumb-item text-muted">@TempData["Action"] State</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -50,48 +50,51 @@
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-fluid">
-        <div class="m-5">
-
-            <form method="post" asp-area="LOC_State" asp-controller="LOC_State" asp-action="Save">
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <input type="hidden" asp-for="StateID" autocomplete="off" />
-                <div class="row">
-                    <!--begin::Input group-->
-                    <div class="d-flex flex-column mb-8 fv-row col-lg-6">
-                        <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="CountryID">
-                            <span>Country Name </span> <span class="text-danger">*</span>
-                        </label>
-                        <!--end::Label-->
-                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Country" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.List,"CountryID","CountryName"))">
-                            <option value="">Select Country</option>
-                        </select>
-                        <span class="text-danger" asp-validation-for="CountryID"></span>
-                    </div>
-                    <!--end::Input group-->
-                    <!--begin::Input group-->
-                    <div class="d-flex flex-column mb-8 fv-row col-lg-6 ">
-                        <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="StateName">
-                            <span>State Name </span> <span class="text-danger">*</span>
-                        </label>
-                        <!--end::Label-->
-                        <input type="text" class="form-control form-control-solid" asp-for="StateName" placeholder="Enter State Name" autocomplete="off" />
-                        <span class="text-danger" asp-validation-for="StateName"></span>
-                    </div>
-                    <!--end::Input group-->
-                </div>
-                <!--begin::Actions-->
+        <div class="card">
+            <div class="card-body p-5 px-lg-10 py-lg-7">
                 <div>
-                    <button type="submit" class="btn btn-primary" style="margin-right:5px;">
-                        <span class="indicator-label">Submit</span>
-                    </button>
-                    <a type="submit" class="btn btn-light me-3" asp-area="LOC_State" asp-controller="LOC_State" asp-action="Index">
-                        Back to List
-                    </a>
+                    <form method="post" asp-area="LOC_State" asp-controller="LOC_State" asp-action="Save">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <input type="hidden" asp-for="StateID" autocomplete="off" />
+                        <div class="row">
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column mb-8 fv-row col-lg-6">
+                                <!--begin::Label-->
+                                <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="CountryID">
+                                    <span>Country Name </span> <span class="text-danger">*</span>
+                                </label>
+                                <!--end::Label-->
+                                <select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Country" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList,"CountryID","CountryName"))">
+                                    <option value="">Select Country</option>
+                                </select>
+                                <span class="text-danger" asp-validation-for="CountryID"></span>
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="d-flex flex-column mb-8 fv-row col-lg-6 ">
+                                <!--begin::Label-->
+                                <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="StateName">
+                                    <span>State Name </span> <span class="text-danger">*</span>
+                                </label>
+                                <!--end::Label-->
+                                <input type="text" class="form-control form-control-solid" asp-for="StateName" placeholder="Enter State Name" autocomplete="off" />
+                                <span class="text-danger" asp-validation-for="StateName"></span>
+                            </div>
+                            <!--end::Input group-->
+                        </div>
+                        <!--begin::Actions-->
+                        <div>
+                            <button type="submit" class="btn btn-primary" style="margin-right:5px;">
+                                <span class="indicator-label">Submit</span>
+                            </button>
+                            <a type="submit" class="btn btn-light me-3" asp-area="LOC_State" asp-controller="LOC_State" asp-action="Index">
+                                Back to List
+                            </a>
+                        </div>
+                        <!--end::Actions-->
+                    </form>
                 </div>
-                <!--end::Actions-->
-            </form>
+            </div>
         </div>
     </div>
     <!--end::Content container-->

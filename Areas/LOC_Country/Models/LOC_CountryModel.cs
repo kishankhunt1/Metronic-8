@@ -1,12 +1,12 @@
-﻿
-
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Metronic_8.Areas.LOC_Country.Models
 {
 	public class LOC_CountryModel
 	{
+		
 		public int? CountryID { get; set; }
 		[Required]
         [DisplayName("Country Name")]

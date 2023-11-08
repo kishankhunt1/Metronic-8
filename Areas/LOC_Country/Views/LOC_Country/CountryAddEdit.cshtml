@@ -4,6 +4,7 @@
 }
 
 @model Metronic_8.Areas.LOC_Country.Models.LOC_CountryModel;
+@using Metronic_8.BAL;
 
 <!--begin::Toolbar-->
 <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
@@ -37,7 +38,7 @@
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Add Country</li>
+                <li class="breadcrumb-item text-muted">@TempData["Action"] Country</li>
                 <!--end::Item-->
             </ul>
             <!--end::Breadcrumb-->
@@ -51,36 +52,39 @@
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-fluid">
-        <div class="m-5">
-
-            <form method="post" asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Save">
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <input type="hidden" asp-for="CountryID" autocomplete="off" />
-
-
-                <!--begin::Input group-->
-                <div class="d-flex flex-column mb-8 fv-row">
-                    <!--begin::Label-->
-                    <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="CountryName">
-                        <span>Country Name </span> <span class="text-danger">*</span>
-                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only unique country name"></i>
-                    </label>
-                    <!--end::Label-->
-                    <input type="text" class="form-control form-control-solid" asp-for="CountryName" placeholder="Enter Country Name" autocomplete="off"/>
-                    <span class="text-danger" asp-validation-for="CountryName"></span>
-                </div>
-                <!--end::Input group-->
-                <!--begin::Actions-->
+        <div class="card">
+            <div class="card-body p-5 px-lg-10 py-lg-7">
                 <div>
-                    <button type="submit" class="btn btn-primary" style="margin-right:5px;">
-                        <span class="indicator-label">Submit</span>
-                    </button>
-                    <a type="submit" class="btn btn-light me-3" asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Index">
-                        Back to List
-                    </a>
+                    <form method="post" asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Save">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <input type="hidden" asp-for="CountryID" autocomplete="off" />
+
+
+                        <!--begin::Input group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2" asp-for="CountryName">
+                                <span>Country Name </span> <span class="text-danger">*</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="it accepts only unique country name"></i>
+                            </label>
+                            <!--end::Label-->
+                            <input type="text" class="form-control form-control-solid" asp-for="CountryName" placeholder="Enter Country Name" autocomplete="off" />
+                            <span class="text-danger" asp-validation-for="CountryName"></span>
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Actions-->
+                        <div>
+                            <button type="submit" class="btn btn-primary" style="margin-right:5px;">
+                                <span class="indicator-label">Submit</span>
+                            </button>
+                            <a type="submit" class="btn btn-light me-3" asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Index">
+                                Back to List
+                            </a>
+                        </div>
+                        <!--end::Actions-->
+                    </form>
                 </div>
-                <!--end::Actions-->
-            </form>
+            </div>
         </div>
     </div>
     <!--end::Content container-->

@@ -25,7 +25,7 @@ namespace Metronic_8.Areas.LOC_City.Controllers
                 vlst.CountryName = dr1["CountryName"].ToString();
                 CountryList.Add(vlst);
             }
-            ViewBag.List = CountryList;
+            ViewBag.CountryList = CountryList;
         }
         #endregion
 
@@ -72,10 +72,10 @@ namespace Metronic_8.Areas.LOC_City.Controllers
 
             DataTable dt = dalLOC.PR_LOC_City_SelectAll(modelLOC_City);
             List<LOC_CityModel> City = new List<LOC_CityModel>();
+
             foreach (DataRow dr in dt.Rows)
             {
                 LOC_CityModel CityModel = new LOC_CityModel();
-                CityModel.CityID = Convert.ToInt32(dr["CityID"]);
                 CityModel.CountryName = dr["CountryName"].ToString();
                 CityModel.StateName = dr["StateName"].ToString();
                 CityModel.CityName = dr["CityName"].ToString();
@@ -83,7 +83,7 @@ namespace Metronic_8.Areas.LOC_City.Controllers
                 CityModel.Modified = Convert.ToDateTime(dr["Modified"]);
                 City.Add(CityModel);
             }
-            ViewBag.City = City;
+            ViewBag.CityModel = City;
 
             return View("CityList");
         }
@@ -94,6 +94,8 @@ namespace Metronic_8.Areas.LOC_City.Controllers
         {
             if (ModelState.IsValid)
             {
+                TempData["Action"] = "Add";
+
                 #region  Country Drop down
                 DataTable dt1 = dalLOC.PR_LOC_Country_CountryDropDown();
                 List<CountryDropDown> CountryList = new List<CountryDropDown>();
@@ -117,6 +119,8 @@ namespace Metronic_8.Areas.LOC_City.Controllers
 
                 if (CityID != null)
                 {
+                    TempData["Action"] = "Edit";
+
                     LOC_CityModel modelLOC_City = new LOC_CityModel();
 
                     //if update the record

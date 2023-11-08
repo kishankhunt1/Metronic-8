@@ -1,4 +1,6 @@
 ﻿@using Metronic_8.Areas.LOC_Country.Models;
+@using Metronic_8.BAL;
+@model Metronic_8.Areas.LOC_Country.Models.LOC_CountryModel;
 @{
     ViewData["Title"] = "CountryList";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -46,11 +48,16 @@
     <!--end::Toolbar container-->
 </div>
 <!--end::Toolbar-->
+
+
+
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-fluid">
         <div class="card">
+
+
             <div class="card-body p-5 px-lg-10 py-lg-7">
                 <!--begin::Heading-->
                 <div>
@@ -73,6 +80,8 @@
                 </div>
                 <!--end::Heading-->
             </div>
+
+
         </div>
 
         <!--begin::Card-->
@@ -101,10 +110,10 @@
                     <!--begin::Toolbar-->
                     <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
                         <!--begin::Add customer-->
-                        <a asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Add" class="btn fw-bold btn-primary">Add Country</a>
+                        <a class="btn btn-primary" asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Add">Add Country</a>
                         <!--end::Add customer-->
                     </div>
-                    <!--end::Toolbar-->
+                    <!--end::Toolbar--> 
                     <!--begin::Group actions-->
                     <div class="d-flex justify-content-end align-items-center d-none" data-kt-customer-table-toolbar="selected">
                         <div class="fw-bold me-5">
@@ -131,8 +140,8 @@
                                 </div>
                             </th>
                             <th>Country Name</th>
-                            <th class="text-center">City Count</th>
                             <th class="text-center">State Count</th>
+                            <th class="text-center">City Count</th>
                             <th class="text-center">Created</th>
                             <th class="text-center">Modified</th>
                             <th class="text-center">Actions</th>
@@ -143,7 +152,7 @@
                     <!--end::Table head-->
                     <!--begin::Table body-->
                     <tbody class="fw-semibold text-gray-600">
-                        @foreach (LOC_CountryModel dr in ViewBag.Country)
+                        @foreach (LOC_CountryModel dr in ViewBag.CountryModel)
                         {
                             <tr>
 
@@ -173,13 +182,14 @@
 
                                 <td class="text-center">
                                     @(Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy"))
-                                </td>
+                                </td> 
 
                                 <td class="text-center">
-                                    <a class="text-decoration-none text-dark text-hover-primary"
+                                    <a class="text-decoration-none text-dark text-hover-primary edit-button"
+                                       
                                        style="margin-right: 8px;" data-bs-toggle="tooltip"
                                        data-bs-placement="left" data-bs-title="Edit"
-                                       asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Add" asp-route-CountryID="@dr.CountryID">
+                                       asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Add" asp-route-CountryID="@CommonFunctions.EncryptBase64(dr.CountryID.ToString())">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20"
                                              height="20" fill="currentColor"
                                              class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -191,7 +201,7 @@
                                     <a class="text-decoration-none text-dark text-hover-danger"
                                        data-bs-toggle="tooltip" data-bs-placement="right"
                                        data-bs-title="Delete"
-                                       asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Delete" asp-route-CountryID="@dr.CountryID" onclick="return confirm('Are You sure delete it!!!')">
+                                       asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Delete" asp-route-CountryID="@CommonFunctions.EncryptBase64(dr.CountryID.ToString())" onclick="return confirm('Are You sure delete it!!!')">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20"
                                              height="20" fill="currentColor" class="bi bi-trash3"
                                              viewBox="0 0 16 16">
@@ -217,6 +227,22 @@
     </div>
     <!--end::Content container-->
 </div>
+
+
+
+
+
+<!-- Include the partial view for the modal form -->
+<div id="countryModalContainer">
+    <partial name="_CountryAddEditModal" model="Model" />
+</div>
+
+
+
+
+
+
+
 <!--end::Content-->
 @section scripts{
 
@@ -287,4 +313,17 @@
         });
     </script>
     @*<---------- tack selected checkbox values script end ---------->*@
+
+
+    <script>
+        $(document).ready(function () {
+            // Attach a click event handler to the "Add Country" button to open the modal
+            $('#addCountryButton').click(function () {
+                $('#countryModal').modal('show');
+            });
+
+            // Add more JavaScript code here as needed
+        });
+    </script>
+
 }

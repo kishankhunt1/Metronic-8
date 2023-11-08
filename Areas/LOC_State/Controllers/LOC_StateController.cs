@@ -1,12 +1,14 @@
 ﻿using Metronic_8.Areas.LOC_Country.Models;
 using Metronic_8.Areas.LOC_State.Models;
+using Metronic_8.BAL;
 using Metronic_8.DAL;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 
 namespace Metronic_8.Areas.LOC_State.Controllers
 {
-	[Area("LOC_State")]
+    [CheckAccess]
+    [Area("LOC_State")]
 	[Route("[Controller]/[action]")]
 	public class LOC_StateController : Controller
 	{
@@ -25,11 +27,12 @@ namespace Metronic_8.Areas.LOC_State.Controllers
                 vlst.CountryName = dr["CountryName"].ToString();
                 CountryList.Add(vlst);
             }
-            ViewBag.List = CountryList;
+            ViewBag.CountryList = CountryList;
             #endregion
 
-
             DataTable dt = dalLOC.PR_LOC_State_SelectAll(modelLOC_State);
+
+            #region Fill the Record into List
             List<LOC_StateModel> State = new List<LOC_StateModel>();
             foreach (DataRow dr in dt.Rows)
             {
@@ -41,7 +44,9 @@ namespace Metronic_8.Areas.LOC_State.Controllers
                 StateModel.Modified = Convert.ToDateTime(dr["Modified"]);
                 State.Add(StateModel);
             }
-            ViewBag.State = State;
+            ViewBag.StateModel = State;
+            #endregion
+
             return View("StateList");
         }
         #endregion
@@ -51,6 +56,10 @@ namespace Metronic_8.Areas.LOC_State.Controllers
         {
             if (ModelState.IsValid)
             {
+                #region Form Title
+                TempData["Action"] = "Add";
+                #endregion
+
                 #region  Country Drop down
                 DataTable dt1 = dalLOC.PR_LOC_Country_CountryDropDown();
                 List<CountryDropDown> CountryList = new List<CountryDropDown>();
@@ -61,11 +70,16 @@ namespace Metronic_8.Areas.LOC_State.Controllers
                     vlst.CountryName = dr["CountryName"].ToString();
                     CountryList.Add(vlst);
                 }
-                ViewBag.List = CountryList;
+                ViewBag.CountryList = CountryList;
                 #endregion
 
                 if (StateID != null)
                 {
+                    #region Form Title
+                    TempData["Action"] = "Edit";
+                    #endregion
+
+                    #region Update record
                     //if update the record
                     DataTable dt = dalLOC.PR_LOC_State_SelectByPk(StateID);
 
@@ -78,6 +92,7 @@ namespace Metronic_8.Areas.LOC_State.Controllers
                         modelLOC_State.StateName = dr["StateName"].ToString();
                     }
                     return View("StateAddEdit", modelLOC_State);
+                    #endregion
                 }
             }
             return View("StateAddEdit");
@@ -90,6 +105,7 @@ namespace Metronic_8.Areas.LOC_State.Controllers
         {
             if (modelLOC_State.StateID == null)
             {
+                #region Inserting record
                 //if record insert
                 if (Convert.ToBoolean(dalLOC.PR_LOC_State_Insert(modelLOC_State)))
                 {
@@ -97,15 +113,18 @@ namespace Metronic_8.Areas.LOC_State.Controllers
                     return RedirectToAction("Index");
 
                 }
+                #endregion
             }
             else
             {
+                #region Updating record
                 //if record update
                 if (Convert.ToBoolean(dalLOC.PR_LOC_State_UpdateByPk(modelLOC_State)))
                 {
                     TempData["success"] = "Record Updated successfully.";
                     return RedirectToAction("Index");
                 }
+                #endregion
             }
             return RedirectToAction("Add");
         }
@@ -114,10 +133,13 @@ namespace Metronic_8.Areas.LOC_State.Controllers
         #region Function: Delete record
         public IActionResult Delete(int StateID)
         {
+            #region Deleting record
             if (Convert.ToBoolean(dalLOC.PR_LOC_State_DeleteByPk(StateID)))
             {
                 TempData["success"] = "Record deleted successfully.";
             }
+            #endregion
+
             return RedirectToAction("Index");
         }
         #endregion
@@ -147,5 +169,5 @@ namespace Metronic_8.Areas.LOC_State.Controllers
         }
         #endregion
 
-    }
+	}
 }

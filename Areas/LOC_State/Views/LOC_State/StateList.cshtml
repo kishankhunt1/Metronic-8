@@ -103,7 +103,7 @@
                     <!--begin::Toolbar-->
                     <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
                         <!--begin::Add customer-->
-                        <a asp-area="LOC_State" asp-controller="LOC_Country" asp-action="Add" class="btn fw-bold btn-primary">Add State</a>
+                        <a asp-area="LOC_State" asp-controller="LOC_State" asp-action="Add" class="btn fw-bold btn-primary">Add State</a>
                         <!--end::Add customer-->
                     </div>
                     <!--end::Toolbar-->
@@ -136,6 +136,8 @@
                             <th>State Name</th>
                             <th class="text-center">Created</th>
                             <th class="text-center">Modified</th>
+                            <th class="text-center">Modified</th>
+
                             <th class="text-center">Actions</th>
 
                         </tr>
@@ -144,7 +146,7 @@
                     <!--end::Table head-->
                     <!--begin::Table body-->
                     <tbody class="fw-semibold text-gray-600">
-                        @foreach (LOC_StateModel dr in ViewBag.State)
+                        @foreach (LOC_StateModel dr in ViewBag.StateModel)
                         {
                             <tr>
 
@@ -166,6 +168,9 @@
                                     @(Convert.ToDateTime(dr.Created).ToString("dd-MM-yyyy"))
                                 </td>
 
+                                <td class="text-center">
+                                    @(Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy"))
+                                </td>
                                 <td class="text-center">
                                     @(Convert.ToDateTime(dr.Modified).ToString("dd-MM-yyyy"))
                                 </td>
@@ -215,28 +220,12 @@
 <!--end::Content-->
 @section scripts{
 
-
-    <!--begin::Javascript-->
     <script>var hostUrl = "assets/";</script>
-    <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="~/dist/assets/plugins/global/plugins.bundle.js"></script>
-    <script src="~/dist/assets/js/scripts.bundle.js"></script>
-    <!--end::Global Javascript Bundle-->
-    <!--begin::Vendors Javascript(used by this page)-->
-    <script src="~/dist/assets/plugins/custom/datatables/datatables.bundle.js"></script>
-    <!--end::Vendors Javascript-->
-    <!--begin::Custom Javascript(used by this page)-->
     <script src="~/dist/assets/js/custom/apps/ecommerce/customers/listing/listing.js"></script>
     <script src="~/dist/assets/js/custom/apps/ecommerce/customers/listing/add.js"></script>
     <script src="~/dist/assets/js/custom/apps/ecommerce/customers/listing/export.js"></script>
-    <script src="~/dist/assets/js/widgets.bundle.js"></script>
-    <script src="~/dist/assets/js/custom/widgets.js"></script>
-    <script src="~/dist/assets/js/custom/apps/chat/chat.js"></script>
-    <script src="~/dist/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-    <script src="~/dist/assets/js/custom/utilities/modals/create-app.js"></script>
-    <script src="~/dist/assets/js/custom/utilities/modals/users-search.js"></script>
-    <!--end::Custom Javascript-->
-    <!--end::Javascript-->
+    
+
     @*<---------- select all check box script start ---------->*@
     <script>
         $('#SelectAll').on('click', function () {

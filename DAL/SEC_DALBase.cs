@@ -15,8 +15,8 @@ namespace Metronic_8.DAL
             {
                 SqlDatabase sqlDB = new SqlDatabase(ConnectionString);
                 DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_SEC_User_SelectByUserNamePassword");
-                sqlDB.AddInParameter(dbCMD, "@UserName", SqlDbType.NVarChar, UserName);
-                sqlDB.AddInParameter(dbCMD, "@Password", SqlDbType.NVarChar, Password);
+                sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, UserName);
+                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, Password);
 
                 DataTable dt = new DataTable();
                 using (IDataReader dr = sqlDB.ExecuteReader(dbCMD))
@@ -39,11 +39,11 @@ namespace Metronic_8.DAL
 			{
 				SqlDatabase sqlDB = new SqlDatabase(ConnectionString);
 				DbCommand dbCMD = sqlDB.GetStoredProcCommand("PR_SEC_User_InsertUser");
-				sqlDB.AddInParameter(dbCMD, "@UserName", SqlDbType.NVarChar, modelSEC_User.UserName);
-                sqlDB.AddInParameter(dbCMD, "@Password", SqlDbType.NVarChar, modelSEC_User.Password); // This should be the hashed password
-                sqlDB.AddInParameter(dbCMD, "@FirstName", SqlDbType.NVarChar, modelSEC_User.FirstName);
-				sqlDB.AddInParameter(dbCMD, "@LastName", SqlDbType.NVarChar, modelSEC_User.LastName);
-				sqlDB.AddInParameter(dbCMD, "@UserEmail", SqlDbType.NVarChar, modelSEC_User.UserEmail);
+				sqlDB.AddInParameter(dbCMD, "UserName", SqlDbType.NVarChar, modelSEC_User.UserName);
+                sqlDB.AddInParameter(dbCMD, "Password", SqlDbType.NVarChar, modelSEC_User.Password); // This should be the hashed password
+                sqlDB.AddInParameter(dbCMD, "FirstName", SqlDbType.NVarChar, modelSEC_User.FirstName);
+				sqlDB.AddInParameter(dbCMD, "LastName", SqlDbType.NVarChar, modelSEC_User.LastName);
+				sqlDB.AddInParameter(dbCMD, "UserEmail", SqlDbType.NVarChar, modelSEC_User.UserEmail);
 
 				int result = sqlDB.ExecuteNonQuery(dbCMD);
 				return (result == -1 ? false : true);

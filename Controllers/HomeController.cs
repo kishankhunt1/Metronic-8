@@ -1,6 +1,10 @@
-﻿using Metronic_8.BAL;
+﻿using Metronic_8.Areas.LOC_Country.Models;
+using Metronic_8.BAL;
+using Metronic_8.DAL;
 using Metronic_8.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using System.Data;
 using System.Diagnostics;
 
 namespace Metronic_8.Controllers
@@ -8,6 +12,7 @@ namespace Metronic_8.Controllers
 	[CheckAccess]
 	public class HomeController : Controller
     {
+        LOC_DAL dal=new LOC_DAL();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -23,12 +28,6 @@ namespace Metronic_8.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
